@@ -1,0 +1,7 @@
+name: BedrockTransferPacketCommand
+version: ${project.version}
+main: com.github.camotoy.bedrocktransferpacketcommand.BedrockTransferPacketCommand
+api-version: 1.16
+authors: [ Camotoy ]
+depend:
+  - Geyser-Spigot
