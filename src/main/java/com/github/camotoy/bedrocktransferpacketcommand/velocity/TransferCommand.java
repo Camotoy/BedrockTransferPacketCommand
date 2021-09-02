@@ -21,7 +21,6 @@ public class TransferCommand implements RawCommand {
         }
         try {
             UUID uuid = BedrockTransferPacketCommandVelocity.getPlugin().getProxyServer().getPlayer(args[0]).orElseThrow().getUniqueId();
-            ;
             GeyserSession session = GeyserConnector.getInstance().getPlayerByUuid(uuid);
 
             if (session == null) {
