@@ -33,10 +33,15 @@ public class TransferCommand extends Command {
                 sender.sendMessage(new TextComponent(ChatColor.DARK_RED + "Unable to find player!"));
                 return;
             }
-            Optional<Integer> port = Optional.of(Integer.parseInt(args[2]));
+            // Always use default port unless args is not null which means ports has been given
+            int port = 19132;
+            if (!(args[2] == null)){
+                // Parse safe to use since we will catch its error.
+                port = Integer.parseInt(args[2]);
+            }
             TransferPacket packet = new TransferPacket();
             packet.setAddress(args[1]);
-            packet.setPort(port.orElse(19132));
+            packet.setPort(port);
             session.sendUpstreamPacket(packet);
         } catch (NumberFormatException | NoSuchElementException | IndexOutOfBoundsException e) {
             sender.sendMessage((new TextComponent(ChatColor.DARK_RED + "Wrong usage, /transfer <playername> <ip> <port>")));
