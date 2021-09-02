@@ -29,14 +29,13 @@ public class TransferCommand implements RawCommand {
                 source.sendMessage(Component.text("Unable to find player!"));
                 return;
             }
-            String ip = args[1];
             Optional<Integer> port = Optional.of(Integer.parseInt(args[2]));
             TransferPacket packet = new TransferPacket();
-            packet.setAddress(ip);
+            packet.setAddress(args[1]);
             packet.setPort(port.orElse(19132));
             session.sendUpstreamPacket(packet);
-        } catch (NumberFormatException | NoSuchElementException e) {
-            source.sendMessage(Component.text("Something went wrong while fetching playerdata"));
+        } catch (NumberFormatException | NoSuchElementException | IndexOutOfBoundsException e) {
+            source.sendMessage(Component.text("Something went wrong use /transfer <playername> <ip> <port>"));
         }
     }
 }

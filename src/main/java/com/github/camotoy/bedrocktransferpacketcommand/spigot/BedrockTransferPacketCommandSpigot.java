@@ -49,10 +49,9 @@ public final class BedrockTransferPacketCommandSpigot extends JavaPlugin {
                 return;
             }
 
-            String ip = context.get("address");
             Optional<Integer> port = context.getOptional("port");
             TransferPacket packet = new TransferPacket();
-            packet.setAddress(ip);
+            packet.setAddress(context.get("address"));
             packet.setPort(port.orElse(19132));
             session.sendUpstreamPacket(packet);
         }));
