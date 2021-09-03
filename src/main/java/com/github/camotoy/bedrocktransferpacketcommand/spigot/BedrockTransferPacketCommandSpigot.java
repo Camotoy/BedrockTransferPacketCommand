@@ -1,4 +1,4 @@
-package com.github.camotoy.bedrocktransferpacketcommand;
+package com.github.camotoy.bedrocktransferpacketcommand.spigot;
 
 import cloud.commandframework.ArgumentDescription;
 import cloud.commandframework.arguments.standard.IntegerArgument;
@@ -17,7 +17,7 @@ import org.geysermc.connector.network.session.GeyserSession;
 import java.util.Optional;
 import java.util.function.Function;
 
-public final class BedrockTransferPacketCommand extends JavaPlugin {
+public final class BedrockTransferPacketCommandSpigot extends JavaPlugin {
 
     @Override
     public void onEnable() {
@@ -49,10 +49,9 @@ public final class BedrockTransferPacketCommand extends JavaPlugin {
                 return;
             }
 
-            String ip = context.get("address");
             Optional<Integer> port = context.getOptional("port");
             TransferPacket packet = new TransferPacket();
-            packet.setAddress(ip);
+            packet.setAddress(context.get("address"));
             packet.setPort(port.orElse(19132));
             session.sendUpstreamPacket(packet);
         }));

@@ -1,6 +1,6 @@
 name: BedrockTransferPacketCommand
 version: ${project.version}
-main: com.github.camotoy.bedrocktransferpacketcommand.BedrockTransferPacketCommand
+main: com.github.camotoy.bedrocktransferpacketcommand.spigot.BedrockTransferPacketCommandSpigot
 api-version: 1.16
 authors: [ Camotoy ]
 depend:

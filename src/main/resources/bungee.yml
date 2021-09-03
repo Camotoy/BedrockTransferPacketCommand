@@ -1,0 +1,6 @@
+name: BedrockTransferPacketCommandSpigot
+main: com.github.camotoy.bedrocktransferpacketcommand.bungee.BedrockTransferPacketCommandBungee
+version: ${project.version}
+description: Transfer a Bedrock player to a new Bedrock server.
+author: Camotoy
+depends: ["Geyser-BungeeCord"]
