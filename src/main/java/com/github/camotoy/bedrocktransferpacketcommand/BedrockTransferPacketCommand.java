@@ -11,8 +11,8 @@ import com.nukkitx.protocol.bedrock.packet.TransferPacket;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.geysermc.connector.GeyserConnector;
-import org.geysermc.connector.network.session.GeyserSession;
+import org.geysermc.geyser.GeyserImpl;
+import org.geysermc.geyser.session.GeyserSession;
 
 import java.util.Optional;
 import java.util.function.Function;
@@ -43,7 +43,7 @@ public final class BedrockTransferPacketCommand extends JavaPlugin {
                 context.getSender().sendMessage("Player not found!");
                 return;
             }
-            GeyserSession session = GeyserConnector.getInstance().getPlayerByUuid(playerArgument.getPlayer().getUniqueId());
+            GeyserSession session = GeyserImpl.getInstance().connectionByUuid(playerArgument.getPlayer().getUniqueId());
             if (session == null) {
                 context.getSender().sendMessage("Target must be a Bedrock player!");
                 return;
